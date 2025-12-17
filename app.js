@@ -15,7 +15,7 @@ app.use(cookieParser());
 
 // Routers
 const authRouter = require('./routes/authRouter');
-const testRouter = require('./routes/testRouter');
+const protectedRouter = require('./routes/protectedRouter');
 const errorsController = require('./controllers/errors');
 
 // Body parsers and static assets
@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
 
 // Mount API routes
 app.use('/api/auth', authRouter);
-app.use('/api/test', testRouter);
+app.use('/api/test', protectedRouter);
 // 404 for all other unmatched routes
 app.use(errorsController.pageNotFound);
 
